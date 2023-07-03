@@ -8,15 +8,25 @@
     </button>
     <div class="collapse navbar-collapse" id="topNavbar">
       <ul class="navbar-nav">
-      	<!-- A menu link to lists order types -->
+      	<!-- A menu link to lists luggage -->
         <li class="nav-item">
           <a class="nav-link" th:href="@{/luggage/list}">Luggage</a>
         </li>
         
-        <!-- A menu link to add a new order type -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" th:href="@{/ordertype/0}">Add New Order Type</a>
-        </li> -->
+        <!-- A menu link to add a new luggage -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/luggage/0}">Add New Luggage</a>
+        </li>
+        
+        <!-- A menu link to lists checkpoint -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint/list}">Checkpoint</a>
+        </li>
+        
+        <!-- A menu link to add a new checkpoint -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint/0}">Add New Checkpoint</a>
+        </li>
         
       </ul>
     </div>

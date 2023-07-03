@@ -207,8 +207,7 @@
         <div class="flex-1">
           <a href="/signup?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&amp;source=header-repo"
             class="d-inline-block d-lg-none flex-order-1 f5 no-underline border color-border-default rounded-2 px-2 py-1 color-fg-inherit"
-            data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/bezkoder/spring-boot-thymeleaf-example/blob/master/src/main/resources/static/css/style.css&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="330e3b28889d90ac3edcec0bab5aaba6c7323c197d5934422d58dc86cce96b02"
-          >
+            data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/bezkoder/spring-boot-thymeleaf-example/blob/master/src/main/resources/static/css/style.css&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="330e3b28889d90ac3edcec0bab5aaba6c7323c197d5934422d58dc86cce96b02">
             Sign&nbsp;up
           </a>
         </div>
@@ -1939,4 +1938,3 @@
     <div id="js-global-screen-reader-notice" class="sr-only" aria-live="polite" ></div>
   </body>
 </html>
-

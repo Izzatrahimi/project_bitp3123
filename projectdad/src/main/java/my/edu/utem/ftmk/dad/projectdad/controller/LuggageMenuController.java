@@ -17,35 +17,40 @@ import org.springframework.web.client.RestTemplate;
 import my.edu.utem.ftmk.dad.projectdad.model.Luggage;
 
 /**
- * @author Arif, Izzat, Bashyar
+ * @author Izzat Rahimi
+ * This class serves as a Menu controller for managing Luggages.
  *
  */
 @Controller
-
 public class LuggageMenuController {
 	
+	//without initialization for defaultURI, there will be whitelabel error 
+	//for adding new luggage
+	//hence, initialize variable defaultURI with URI Link
 	private String defaultURI = "http://localhost:8080/projectdad/api/luggage";
 	
 	@GetMapping("/luggage/list")
 	public String getLuggage(Model model) {
 		
-		//The URI for GET order types
+		//The URI for GET luggage
 		String uri = "http://localhost:8080/projectdad/api/luggage";
 		
-		//Get a list order types from the web service
+		//Get a list luggage from the web service
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Luggage[]> response = restTemplate.getForEntity(uri, Luggage[].class);
+		ResponseEntity<Luggage[]> response = 
+				restTemplate.getForEntity(uri, Luggage[].class);
 		
 		//Parse JSON data to array of object
-		Luggage luggage[] = response.getBody();
+		Luggage Luggages[] = response.getBody();
 		
 		//Parse an array to a list object
-		List<Luggage> luggageList = Arrays.asList(luggage);
+		List<Luggage> luggageList = Arrays.asList(Luggages);
 		
 		//Attach list to a model as attribute
-		model.addAttribute("luggage",luggageList);
+		model.addAttribute("Luggages",luggageList);
 		
-		return "luggage";
+		return "luggages";
+		
 		
 	}
 	
@@ -61,6 +66,7 @@ public class LuggageMenuController {
 		String luggageResponse = "";
 		
 		if (luggage.getLuggageId()> 0) {
+			//this block update a new luggage and
 			
 			//send request PUT
 			restTemplate.put(defaultURI, request, Luggage.class);
@@ -69,7 +75,8 @@ public class LuggageMenuController {
 			//this block add a new order type 
 			
 			//send request as POST
-			luggageResponse = restTemplate.postForObject(defaultURI, request, String.class);
+			luggageResponse = restTemplate.postForObject
+					(defaultURI, request, String.class);
 			
 		}
 		
@@ -77,26 +84,27 @@ public class LuggageMenuController {
 		
 		//redirect request to display a list of order type
 		return "redirect:/luggage/list";
+		
 	}
 	
-	@GetMapping("/luggage/{Id}")
-	public String getLuggage (@PathVariable Integer Id, Model model) {
+	@GetMapping("/luggage/{luggage_id}")
+	public String getLuggage (@PathVariable Integer luggage_id, Model model) {
 		
 		String pageTitle = "New Luggage";
 		Luggage luggage = new Luggage();
 		
-		//This block get an order type to be updated
-		if (Id > 0) {
+		//This block get an luggage to be updated
+		if (luggage_id > 0) {
 			
 			//generate new URI and append orderTypeId to it
-			String uri = defaultURI + "/" + Id;
+			String uri = defaultURI + "/" + luggage_id;
 			
 			//get an order type from web service
 			RestTemplate restTemplate = new RestTemplate();
 			luggage = restTemplate.getForObject(uri, Luggage.class);
 			
 			//give a new title to the page
-			pageTitle = "Edit Luggage Info";
+			pageTitle = "Edit Luggage";
 		}
 		
 		//attach value to pass to front end
@@ -104,21 +112,22 @@ public class LuggageMenuController {
 		model.addAttribute("pageTitle", pageTitle);
 		
 		return "luggageinfo";
+		
 	}
 	
-	@RequestMapping("/luggage/delete/{Id}")
-	public String deleteLuggage(@PathVariable Integer Id) {
+	@RequestMapping("/luggage/delete/{luggage_id}")
+	public String deleteLuggage(@PathVariable Integer luggage_id) {
 		
 		//generate a new URI, similar to the mapping in OrderTypeRESTController
-		String uri = defaultURI + "/{Id}";
+		String uri = defaultURI + "/{luggage_id}";
 		
 		//send a DELETE request and attach the value of the orderTypeId into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("Id", Integer.toString(Id)));
+		restTemplate.delete(uri, Map.of("luggage_id", Integer.toString
+				(luggage_id)));
 		
 		return "redirect:/luggage/list";
 		
 	}
-	
 
 }

@@ -18,7 +18,7 @@ import my.edu.utem.ftmk.dad.projectdad.model.Checkpoint;
 import my.edu.utem.ftmk.dad.projectdad.repository.CheckpointRepository;
 
 /**
- * @author Arif, Izzat, Bashyar
+ * @author Izzat Rahimi
  * This class serves as a REST controller for managing Checkpoints.
  * It handles various HTTP requests related to checkpoints.
  *
@@ -40,7 +40,7 @@ public class CheckpointRESTController {
 	 * @return List of all checkpoints
 	 */
 	@GetMapping
-	public List<Checkpoint>getLuggage() {
+	public List<Checkpoint>getCheckpoint() {
 		return checkpointRepository.findAll();
 	}
 	
@@ -49,11 +49,11 @@ public class CheckpointRESTController {
 	 * @param id ID of the checkpoint to retrieve
 	 * @return The requested checkpoint
 	 */
-	@GetMapping("{Id}")
-	public Checkpoint getLuggage(@PathVariable long Id) {
-		Checkpoint luggage = checkpointRepository.findById(Id).get();
+	@GetMapping("{checkpoint_id}")
+	public Checkpoint getCheckpoint(@PathVariable long checkpoint_id) {
+		Checkpoint checkpoint = checkpointRepository.findById(checkpoint_id).get();
 		
-		return luggage;	
+		return checkpoint;	
 	}
 	
 	
@@ -84,9 +84,10 @@ public class CheckpointRESTController {
 	 * @param id ID of the checkpoint to delete
 	 * @return ResponseEntity with OK status
 	 */
-	@DeleteMapping("{Id}")
-	public ResponseEntity<HttpStatus> deleteLuggage(@PathVariable long Id){
-		checkpointRepository.deleteById(Id);
+	@DeleteMapping("{checkpoint_id}")
+	public ResponseEntity<HttpStatus> deleteCheckpoint
+	(@PathVariable long checkpoint_id){
+		checkpointRepository.deleteById(checkpoint_id);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

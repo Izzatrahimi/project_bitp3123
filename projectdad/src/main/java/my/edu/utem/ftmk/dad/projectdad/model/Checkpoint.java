@@ -1,7 +1,5 @@
 package my.edu.utem.ftmk.dad.projectdad.model;
 
-import java.sql.Timestamp;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,9 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
+ * @author Izzat Rahimi
  * This class represents the Checkpoint entity in the application.
  * It is used to store information about a checkpoint.
- * Authors: Arif, Izzat, Bashyar
+ * 
  */
 @Entity
 @Table (name="checkpoint")
@@ -21,80 +20,42 @@ public class Checkpoint {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name="id")
-    private int id;
+    @Column (name="checkpoint_id")
+    private int checkpointId;
     
-    @Column (name="trackingNumber")
-    private String trackingNumber;
-    
-    @Column (name="location")
-    private String location;
-    
-    @Column (name="timestamp")
-    private Timestamp timestamp;
+    @Column (name="checkpoint_name")
+    private String checkpointName;
     
     /**
      * Returns the checkpoint ID.
      * @return The checkpoint ID.
      */
     public int getCheckpointId() {
-    	return id;
+    	return checkpointId;
     }
     
     /**
      * Sets the checkpoint ID.
      * @param id The checkpoint ID to set.
      */
-    public void setCheckpointId(int id) {
-    	this.id = id;
+    public void setCheckpointId(int checkpointId) {
+    	this.checkpointId = checkpointId;
     }
     
     /**
-     * Returns the tracking number.
-     * @return The tracking number.
+     * Returns the checkpoint name.
+     * @return The checkpoint name.
      */
-    public String getTrackingNumber() {
-    	return trackingNumber;
+    public String getCheckpointName() {
+    	return checkpointName;
     }
     
     /**
-     * Sets the tracking number.
-     * @param trackingNumber The tracking number to set.
+     * Sets the checkpoint name.
+     * @param checkpointName The checkpoint name to set.
      */
-    public void setTrackingNumber(String trackingNumber) {
-    	this.trackingNumber = trackingNumber;
+    public void setCheckpointName(String checkpointName) {
+    	this.checkpointName = checkpointName;
     }
     
-    /**
-     * Returns the location.
-     * @return The location.
-     */
-    public String getLocation() {
-    	return location;
-    }
-    
-    /**
-     * Sets the location.
-     * @param location The location to set.
-     */
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    /**
-     * Returns the timestamp.
-     * @return The timestamp.
-     */
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
-    
-    /**
-     * Returns the timestamp.
-     * @return The timestamp.
-     */
-    public void setTimestamp(Timestamp timeStamp) {
-        this.timestamp = timeStamp;
-    }
-
 }

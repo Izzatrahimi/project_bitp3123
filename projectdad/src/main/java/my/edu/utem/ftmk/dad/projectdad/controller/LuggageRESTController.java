@@ -18,10 +18,11 @@ import my.edu.utem.ftmk.dad.projectdad.model.Luggage;
 import my.edu.utem.ftmk.dad.projectdad.repository.LuggageRepository;
 
 /**
- * @author Arif, Izzat, Bashyar
+ * @author Izzat Rahimi
  * This code represents a REST controller for managing luggage.
  * It provides API endpoints for performing CRUD operations on luggage entities.
- * The controller handles incoming HTTP requests and delegates the processing to the appropriate methods.
+ * The controller handles incoming HTTP requests and delegates the processing 
+ * to the appropriate methods.
  *
  */
 @RestController
@@ -45,19 +46,22 @@ public class LuggageRESTController {
 	
 	/**
 	 * GET endpoint to retrieve a specific luggage entity.
-	 * Takes the ID of the luggage as a path variable and returns the corresponding luggage entity.
+	 * Takes the ID of the luggage as a path variable and returns the 
+	 * corresponding luggage entity.
 	 */
-	@GetMapping("{Id}")
-	public Luggage getLuggage(@PathVariable long Id) {
-		Luggage luggage = luggageRepository.findById(Id).get();
+	@GetMapping("{luggage_id}")
+	public Luggage getLuggage(@PathVariable long luggage_id) {
+		Luggage luggage = luggageRepository.findById(luggage_id).get();
 		
 		return luggage;	
 	}
 	
 	/**
 	 * POST endpoint to insert a new luggage entity.
-	 * Takes a JSON payload in the request body containing the details of the new luggage.
-	 * Inserts the new luggage entity into the database and returns the inserted luggage entity.
+	 * Takes a JSON payload in the request body containing the details 
+	 * of the new luggage.
+	 * Inserts the new luggage entity into the database and returns 
+	 * the inserted luggage entity.
 	 */
 	@PostMapping()
 	public Luggage insertLuggage(@RequestBody Luggage luggage) {
@@ -66,8 +70,10 @@ public class LuggageRESTController {
 	
 	/**
 	 * PUT endpoint to update an existing luggage entity.
-	 * Takes a JSON payload in the request body containing the updated details of the luggage.
-	 * Updates the corresponding luggage entity in the database and returns the updated luggage entity.
+	 * Takes a JSON payload in the request body containing 
+	 * the updated details of the luggage.
+	 * Updates the corresponding luggage entity in 
+	 * the database and returns the updated luggage entity.
 	 */
 	@PutMapping()
 	public Luggage updateLuggage(@RequestBody Luggage luggage) {
@@ -76,12 +82,14 @@ public class LuggageRESTController {
 	
 	/**
 	 * DELETE endpoint to delete a specific luggage entity.
-	 * Takes the ID of the luggage as a path variable and deletes the corresponding luggage entity from the database.
-	 * Returns an HTTP response with the status OK to indicate successful deletion.
+	 * Takes the ID of the luggage as a path variable and 
+	 * deletes the corresponding luggage entity from the database.
+	 * Returns an HTTP response with the status OK 
+	 * to indicate successful deletion.
 	 */
-	@DeleteMapping("{Id}")
-	public ResponseEntity<HttpStatus> deleteLuggage(@PathVariable long Id){
-		luggageRepository.deleteById(Id);
+	@DeleteMapping("{luggage_id}")
+	public ResponseEntity<HttpStatus> deleteLuggage(@PathVariable long luggage_id){
+		luggageRepository.deleteById(luggage_id);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

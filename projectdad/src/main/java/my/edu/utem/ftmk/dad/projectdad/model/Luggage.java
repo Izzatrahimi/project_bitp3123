@@ -8,8 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
- * @author Arif, Izzat, Bashyar
- *
+ * @author Izzat Rahimi
  * This class represents the Luggage entity in the application.
  * It is used to store information about a luggage.
  */
@@ -20,48 +19,48 @@ public class Luggage {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name="id")
-    private int id;
+    @Column (name="luggage_id")
+    private int luggageId;
     
-    @Column (name="trackingNumber")
-    private String trackingNumber;
+    @Column (name="owner_name")
+    private String ownerName;
     
     @Column (name="description")
     private String description;
     
-    @Column (name="isDelivered")
-    private boolean isDelivered;
+    @Column (name="status")
+    private String status;
     
     /**
-     * Returns the luggage ID.
+     * get the luggage ID.
      * @return The luggage ID.
      */
     public int getLuggageId() {
-    	return id;
+    	return luggageId;
     }
     
     /**
      * Sets the luggage ID.
      * @param id The luggage ID to set.
      */
-    public void setLuggageId(int id) {
-    	this.id = id;
+    public void setLuggageId(int luggageId) {
+    	this.luggageId = luggageId;
+    }
+     
+    /**
+     * get the owner name.
+     * @return The owner name.
+     */
+    public String getOwnerName() {
+    	return ownerName;
     }
     
     /**
-     * Returns the tracking number.
-     * @return The tracking number.
+     * Sets the owner name.
+     * @param ownerName The owner name to set.
      */
-    public String getTrackingNumber() {
-    	return trackingNumber;
-    }
-    
-    /**
-     * Sets the tracking number.
-     * @param trackingNumber The tracking number to set.
-     */
-    public void setTrackingNumber(String trackingNumber) {
-    	this.trackingNumber = trackingNumber;
+    public void setOwnerName(String ownerName) {
+    	this.ownerName = ownerName;
     }
     
     /**
@@ -81,18 +80,18 @@ public class Luggage {
     }
 
     /**
-     * Returns whether the luggage is delivered or not.
-     * @return True if the luggage is delivered, false otherwise.
+     * get the status.
+     * @return The status.
      */
-    public boolean isDelivered() {
-        return isDelivered;
+    public String getStatus() {
+        return status;
     }
 
     /**
-     * Sets whether the luggage is delivered or not.
-     * @param delivered True if the luggage is delivered, false otherwise.
+     * Sets the status.
+     * @param status The status to set.
      */
-    public void setDelivered(boolean delivered) {
-        this.isDelivered = delivered;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
